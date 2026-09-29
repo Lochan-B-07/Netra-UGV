@@ -32,3 +32,4 @@ SIH-2/
 * 👉 **[Official 5-Minute Video Presentation Script](./docs/VIDEO_SCRIPT_5MIN.md)** — Exact timing breakdown (0:00 to 5:00), visual screen directions, verbatim spoken script (~135 words/min), and production checklist.
 * 👉 **[Official 5-Slide Presentation Deck & Notes](./docs/PPT_SLIDES_DECK.md)** — Verbatim slide copy, visual layouts, and 30-to-60 second presenter speaking scripts focusing on security and robustness.
 * 👉 **[Research Feeder & Threat Modeling](./docs/RESEARCH_FEEDER_BEL_UGV.md)** — Deep battlefield threat analysis, cyber-physical attack vectors, hardware BOM spectrum, and SIH evaluation rubric alignment.
+* 👉 **[Terrain Segmentation AI & Training Report](./docs/WORK_COMPLETION_REPORT_TERRAIN_AI.md)** — Complete synthesis of RELLIS-3D dataset auditing, BiSeNetV2 training (76.25% mIoU), ONNX acceleration, and ROS 2 perception integration.
