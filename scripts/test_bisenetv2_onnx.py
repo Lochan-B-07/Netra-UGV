@@ -51,7 +51,7 @@ try:
 except ImportError:
     ort = None
 
-# 4 Tactical Terrain Classes
+# 4 Outdoor Terrain Traversability Classes
 CLASS_NAMES = [
     "SOLID_GROUND",       # 0: Soil, dirt road, gravel, asphalt
     "PLIANT_VEGETATION",  # 1: Grass, light brush

@@ -3,7 +3,7 @@ NETRA-UGV RELLIS-3D Dataset Verification & Label Mapping Inspection
 ====================================================================
 Verifies pairing of RGB images and semantic ID masks across train, val,
 and test splits. Inspects raw label distribution, verifies conversion
-into the 4 NETRA tactical classes, and produces a multi-sample visual
+into the 4 NETRA terrain traversability classes, and produces a multi-sample visual
 debug image for human verification.
 
 Usage:
@@ -51,7 +51,7 @@ RELLIS_RAW_NAMES = {
     34: "rubble",
 }
 
-# RELLIS-3D to NETRA-UGV 4 Tactical Classes:
+# RELLIS-3D to NETRA-UGV 4 Terrain Traversability Classes:
 # 0 = SOLID_GROUND
 # 1 = PLIANT_VEGETATION
 # 2 = MUD_HAZARD
@@ -307,7 +307,7 @@ def verify_dataset(
 
         # Plot column 4: Overlay
         axes[row_idx, 3].imshow(blend)
-        axes[row_idx, 3].set_title("Alpha Overlay Verification\n(Tactical Surfaces Mapped to Scene)", fontsize=9)
+        axes[row_idx, 3].set_title("Alpha Overlay Verification\n(Traversability Surfaces Mapped to Scene)", fontsize=9)
         axes[row_idx, 3].axis("off")
 
     plt.tight_layout()

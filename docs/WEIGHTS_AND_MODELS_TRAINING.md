@@ -15,11 +15,11 @@ The RELLIS-3D dataset is extracted and preserved at `C:\Users\Aditya\Desktop\ai`
 
 ---
 
-## 2. RELLIS-3D to NETRA-UGV 4 Tactical Classes Mapping
+## 2. RELLIS-3D to NETRA-UGV 4 Terrain Traversability Classes Mapping
 
-The 20 raw RELLIS-3D ontology classes are mapped into NETRA's 4 tactical sovereign classes:
+The 20 raw RELLIS-3D ontology classes are mapped into NETRA's 4 outdoor terrain traversability classes for unstructured environments:
 
-| Raw ID | RELLIS-3D Class | NETRA Class ID | Tactical Class Name | Autonomous Vehicle Reaction |
+| Raw ID | RELLIS-3D Class | NETRA Class ID | Traversability Class Name | Autonomous Vehicle Reaction |
 | :---: | :--- | :---: | :--- | :--- |
 | **1** | Dirt | **0** | `SOLID_GROUND` | Full mission speed ($\le 1.5$ m/s) |
 | **10** | Asphalt | **0** | `SOLID_GROUND` | Full mission speed |

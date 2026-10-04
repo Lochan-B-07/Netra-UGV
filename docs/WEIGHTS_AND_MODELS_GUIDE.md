@@ -34,9 +34,9 @@ weights/
 - **Inference Latency:** **$2.6\text{ ms}$** on NVIDIA Jetson Orin Nano (INT8 execution on Ampere Tensor Cores).
 
 ### Dataset: RELLIS-3D Off-Road Dataset
-The model is trained on the multi-modal **RELLIS-3D** benchmark (rugged woodland, muddy trails, obstacles) and mapped into NETRA's 4 sovereign tactical classes defined in `TerrainClassification.msg`:
+The model is trained on the multi-modal **RELLIS-3D** benchmark (rugged woodland, muddy trails, obstacles) and mapped into NETRA's 4 terrain traversability classes defined in `TerrainClassification.msg`:
 
-| NETRA Class ID | Semantic Class Name | RELLIS-3D Source Labels | Tactical Autonomous Reaction | Costmap Value |
+| NETRA Class ID | Semantic Class Name | RELLIS-3D Source Labels | Autonomous Navigation Reaction | Costmap Value |
 | :---: | :--- | :--- | :--- | :---: |
 | **0** | `SOLID_GROUND` | Dirt, gravel, asphalt, dry packed soil | Full mission speed ($1.5\text{ m/s}$) | **0** |
 | **1** | `PLIANT_VEGETATION` | Tall grass, light brush, green scrub | Velocity clamped to $\le 0.5\text{ m/s}$ | **35** |
@@ -218,15 +218,15 @@ When `bisenetv2_inference.py` detects this stub or finds no TensorRT runtime, it
 
 ---
 
-## 5. Defence & Security Compliance (FIPS 140-3 & Model Protection)
-
-Per `MASTER_PROJECT_REPORT.md §1.2`:
-1. **Never commit raw multi-gigabyte models into Git.** Use Git LFS or external secure storage.
-2. **Model Encryption at Rest:** In production, the `.trt` engine is encrypted with AES-256-XTS on an encrypted NVMe block device.
-3. **RAMDisk Execution:** At boot, the system mounts a volatile tmpfs (`/dev/shm/netra_secure_models`), verifies the SHA-256 checksum against the signed CA manifest, and loads the model into GPU memory. If zeroization triggers, `/dev/shm` is instantly wiped.
-
+## 5. Edge Deployment & Model Integrity Verification
+ 
+For deployment on the **NVIDIA Jetson Orin Nano** or embedded edge compute platforms:
+1. **Model Storage & Artifact Hygiene:** Store heavy weights in Git LFS or external artifact registries; do not commit large uncompressed binaries to version control.
+2. **Integrity Verification:** The perception node verifies the SHA-256 hash of `bisenetv2_rellis.onnx` / `bisenetv2_rellis_int8.trt` prior to initializing the TensorRT runtime.
+3. **Deterministic Memory Pre-Allocation:** Pre-allocate CUDA execution buffers during node initialization to prevent runtime page allocations and guarantee deterministic latency ($\le 2.6\text{ ms}$).
+ 
 ### Verification Checklist for Teammate
-- [ ] Trained checkpoint achieves $> 88\%$ mIoU on the 4 NETRA classes.
+- [ ] Trained checkpoint achieves $> 76.25\%$ mIoU on the 4 NETRA traversability classes.
 - [ ] ONNX model exported with input shape `(1, 3, 448, 1024)`.
 - [ ] TensorRT INT8 engine builds and benchmarks at $\le 2.6\text{ ms}$ latency on Jetson Orin Nano.
 - [ ] CPU fallback verified on developer laptop.

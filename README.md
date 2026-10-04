@@ -133,6 +133,8 @@ Netra-UGV/
 │   ├── VIDEO_SCRIPT_5MIN.md          # Timed 5-minute technical presentation script
 │   ├── WEIGHTS_AND_MODELS_GUIDE.md   # Model weights & Jetson TensorRT compilation guide
 │   ├── WEIGHTS_AND_MODELS_TRAINING.md# RELLIS-3D training pipeline & benchmark results
+│   ├── WORK_COMPLETION_REPORT_TERRAIN_AI.md # End-to-end Terrain AI completion report
+│   ├── JURY_VIVA_QA_SHEET.md         # High-yield jury viva Q&A defense sheet
 │   ├── SIM_IMPLEMENTATION_GUIDE.md   # Simulation implementation blueprint
 │   ├── RESEARCH_FEEDER_BEL_UGV.md    # Problem analysis, outdoor navigation & BOM spectrum
 │   └── architecture_diagram.pdf      # High-resolution printable system architecture
@@ -201,6 +203,8 @@ Netra-UGV/
 | **[Official Presentation Deck](./docs/PPT_SLIDES_DECK.md)** | SIH Evaluation Committee | Verbatim slide layouts, speaker notes, and 30-sec pitch scripts |
 | **[Model Weights & TensorRT Blueprint](./docs/WEIGHTS_AND_MODELS_GUIDE.md)** | Computer Vision Engineers | Quantization procedures, INT8 calibrator, Jetson Orin Nano deployment |
 | **[RELLIS-3D Model Training Guide](./docs/WEIGHTS_AND_MODELS_TRAINING.md)** | AI Researchers | Training parameters, loss functions, mIoU validation metrics |
+| **[Terrain Segmentation AI Work Completion Report](./docs/WORK_COMPLETION_REPORT_TERRAIN_AI.md)** | AI Engineers & Evaluators | End-to-end dataset audit, 76.25% mIoU training, ONNX export, ROS 2 integration |
+| **[Jury Viva & Defence Review Q&A Sheet](./docs/JURY_VIVA_QA_SHEET.md)** | Technical Evaluators & Presenters | High-yield technical defenses, mathematical explanations, failure handling |
 | **[Simulation Subsystem Blueprint](./docs/SIM_IMPLEMENTATION_GUIDE.md)** | Simulation Engineers | Webots/Gazebo setup, outdoor ditch worlds, URDF kinematics |
 | **[Problem Analysis & Research Feeder](./docs/RESEARCH_FEEDER_BEL_UGV.md)** | Technical Reviewers | Outdoor navigation challenges, sensor trade-offs, BOM spectrum |
 
@@ -217,3 +221,4 @@ Netra-UGV/
 - [x] **Official Presentation Deck & Verbatim Presenter Scripts** (`docs/PPT_SLIDES_DECK.md`).
 - [x] **Timed 5-Minute Video Recording Script** (`docs/VIDEO_SCRIPT_5MIN.md`).
 - [x] **High-Resolution System Architecture Block Diagram** (`docs/diagrams/` & PDF).
+

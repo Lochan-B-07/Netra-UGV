@@ -2,7 +2,7 @@
 NETRA-UGV BiSeNetV2 Terrain Segmentation Training Pipeline
 ===========================================================
 Trains the BiSeNetV2 network on RELLIS-3D off-road camera imagery
-mapped to NETRA's 4 tactical terrain classes:
+mapped to NETRA's 4 outdoor off-road terrain traversability classes:
   0: SOLID_GROUND
   1: PLIANT_VEGETATION
   2: MUD_HAZARD

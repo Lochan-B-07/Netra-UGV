@@ -22,7 +22,7 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-# RELLIS-3D to NETRA-UGV 4 Tactical Classes Lookup Table
+# RELLIS-3D to NETRA-UGV 4 Terrain Traversability Classes Lookup Table
 LUT_CONVERT = np.full(256, 255, dtype=np.uint8)
 # 0 = SOLID_GROUND
 LUT_CONVERT[1] = 0   # dirt
