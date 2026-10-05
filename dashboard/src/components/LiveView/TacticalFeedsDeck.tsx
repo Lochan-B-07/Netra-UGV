@@ -393,8 +393,8 @@ export const TacticalFeedsDeck: React.FC<TacticalFeedsDeckProps> = ({
                 <span className="text-cyan-300 font-bold">#10420 PASS</span>
               </div>
               <div className="flex justify-between">
-                <span>FIPS 140-3 ZEROIZE STATUS:</span>
-                <span className="text-emerald-400 font-bold">ARMED (12ms)</span>
+                <span>GPS SIGNAL STATUS:</span>
+                <span className="text-amber-400 font-bold">DENIED (VIO ONLY)</span>
               </div>
             </div>
           </div>

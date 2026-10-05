@@ -39,7 +39,7 @@ export const WebotsMissionView: React.FC = () => {
               </span>
             </h2>
             <p className="text-xs text-slate-400">
-              Kinodynamic Autonomous Mission Validation across Ditches, Boulders, SecOC Replay Rejection & FIPS 140-3 Zeroization
+              Kinodynamic Autonomous Mission Validation across Ditches, Boulders, Ditches, Boulders & Dynamic Obstacles
             </p>
           </div>
         </div>
@@ -164,7 +164,7 @@ export const WebotsMissionView: React.FC = () => {
               </div>
               <div className="text-[11px] text-slate-400 flex justify-between">
                 <span>netra_security:</span>
-                <span className="text-cyan-400">ZEROIZATION READY</span>
+                <span className="text-cyan-400">AUTONOMOUS READY</span>
               </div>
             </div>
           </div>

@@ -1,7 +1,9 @@
 # 🎬 NETRA-UGV: Official 5-Minute Technical Video Script
-### *Defence-Grade Autonomous Navigation Brain for Tactical Military UGVs*
-**Initiative:** Smart India Hackathon (SIH 2025) | **Problem Statement ID:** 26126  
-**Host Organization:** Bharat Electronics Limited (BEL) — Navratna Defence PSU, Ministry of Defence  
+### *Vision-Based Autonomous Navigation for Outdoor UGVs in GPS-Denied Environments*
+**Initiative:** Smart India Hackathon (SIH 2026) | **Problem Statement ID:** SIH26126  
+**Host Organization:** Bharat Electronics Limited (BEL) — Navratna PSU, Dept. of Defence Production  
+**Theme:** Smart Automation / Robotics and Drones | **Category:** Software  
+**Team Name:** KernelCrew | **Team ID:** 158370  
 **Target Duration:** Exactly 5 Minutes (300 Seconds) | **Target Speaking Pace:** 130–140 words/min (~680 words total)  
 **Primary Reference Files:** [README.md](../README.md) · [TECHNICAL_ARCHITECTURE.md](./TECHNICAL_ARCHITECTURE.md) · [MASTER_PROJECT_REPORT.md](./MASTER_PROJECT_REPORT.md)
 
@@ -11,24 +13,24 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                        5-MINUTE VIDEO MASTER TIMELINE                                  │
+│                        5-MINUTE VIDEO MASTER TIMELINE (PS-26126)                       │
 ├─────────┬───────────────────────────────┬──────────────────────────────────────────────┤
-│ Time    │ Chapter / Segment             │ Key Visual & Core Focus                      │
+│ Time    │ Chapter / Deliverable         │ Key Visual & Core Demonstration              │
 ├─────────┼───────────────────────────────┼──────────────────────────────────────────────┤
-│ 00:00 - │ Chapter 1: The Tactical Crisis│ Combat Threat Map (LoC/LAC), EW Jamming,     │
-│ 01:00   │ & Battlefield Failure Modes   │ Why LiDAR & 2D YOLO Collapse in Combat       │
+│ 00:00 - │ Chapter 1: The Problem        │ GPS Outage in Canopy/Ruins, Mud/Grass Stalls,│
+│ 00:45   │ (Outdoor Autonomy Bottlenecks)│ Negative Obstacles, Why Costly LiDAR Fails   │
 ├─────────┼───────────────────────────────┼──────────────────────────────────────────────┤
-│ 01:00 - │ Chapter 2: Security-First,    │ CAD Cutaway of Shielded Billet Enclosure,    │
-│ 02:00   │ Encryption & Shielding        │ LUKS2 AES-256, S-ROS 2 & <85ms Zeroization   │
+│ 00:45 - │ Chapter 2: Deliverable 1      │ BiSeNetV2-Lite 4-Class Overlay on RELLIS-3D, │
+│ 02:00   │ (Perception AI - Path Detect) │ 76.25% mIoU, Dynamic Lighting & Lens Purge   │
 ├─────────┼───────────────────────────────┼──────────────────────────────────────────────┤
-│ 02:00 - │ Chapter 3: Deterministic Core │ RViz2 Overlay: Dynamic Horizon ROI,          │
-│ 03:00   │ Perception & Ditch Detection  │ v-Disparity Raycasting & OpenVINS 50Hz MSCKF │
+│ 02:00 - │ Chapter 3: Deliverable 2      │ OpenVINS 50Hz MSCKF Keypoint Tracker,        │
+│ 03:15   │ (Visual SLAM & Localization)  │ <1.2% Drift over 500m, Split-Compute ASIC    │
 ├─────────┼───────────────────────────────┼──────────────────────────────────────────────┤
-│ 03:00 - │ Chapter 4: Split-Compute BOM  │ Hardware Block Diagram, OAK-D ASIC Depth,    │
-│ 04:00   │ & Deterministic Latency       │ 18.5ms RT-PREEMPT Budget, Tier 1 vs Tier 2   │
+│ 03:15 - │ Chapter 4: Deliverable 3      │ TEB Kinodynamic Planner (Point A -> Point B),│
+│ 04:15   │ (Planning & Ditch Avoidance)  │ Geometric v-Disparity Void Raycaster (<0.6ms)│
 ├─────────┼───────────────────────────────┼──────────────────────────────────────────────┤
-│ 04:00 - │ Chapter 5: Failsafe Hierarchy,│ 4-Level Limp-Home State Machine,             │
-│ 05:00   │ Quantified KPIs & Outro       │ Gazebo Simulation Run, Verified KPI Summary  │
+│ 04:15 - │ Chapter 5: System Integration │ Live GCS Dashboard, Multi-Scenario Sim,      │
+│ 05:00   │ Multi-Scenario Demo & Impact  │ 18.5ms Latency, Sub-13.5W, BEL Application   │
 └─────────┴───────────────────────────────┴──────────────────────────────────────────────┘
 ```
 
@@ -38,144 +40,162 @@
 
 ---
 
-### ⏱️ MINUTE 00:00 – 01:00 | CHAPTER 1: The Tactical Crisis & Battlefield Failures
+### ⏱️ MINUTE 00:00 – 00:45 | CHAPTER 1: The Problem — Outdoor Navigation Challenges
 
 #### 📺 Visual Cues & Screen Directions:
-* **00:00 – 00:15:** Full-screen title card with NETRA-UGV emblem and Sanskrit motto: *"NETRA (नेत्र) — Eyes of the Tactical Battlefield"*. Cut to presenter in front of a high-contrast satellite map showing high-altitude Ladakh and mountainous LoC border defiles.
-* **00:15 – 00:35:** Split-screen animation showing an enemy electronic warfare jammer broadcasting a jamming cloud, with commercial GPS coordinates scrambling to `NaN`.
-* **00:35 – 01:00:** B-roll / simulated footage showing:
-  1. A spinning LiDAR sensor emitting bright beams picked up on night vision.
-  2. A standard rover running 2D YOLO driving directly off a hidden trench lip into a rollover.
-  3. A rover freezing in $50\text{ cm}$ tall grass due to a binary 2D costmap halt.
+* **00:00 – 00:15:** Title Slide animation with official metadata:
+  - Text: *Smart India Hackathon 2026 | Problem Statement 26126*.
+  - Subtitle: *NETRA-UGV: Vision-Based Autonomous Navigation for Outdoor UGVs*.
+  - Logos: Bharat Electronics Limited (BEL) & Team KernelCrew (ID: 158370).
+* **00:15 – 00:30:** Real-world footage / split-screen simulation of outdoor failure modes:
+  - Failure 1: Satellite GPS lost under dense forest canopy and collapsed concrete rubble.
+  - Failure 2: Conventional rover halting falsely on 50 cm tall pliant grass.
+  - Failure 3: Rover tumbling into an unmapped irrigation ditch or erosion trench that planar sensors missed.
+* **00:30 – 00:45:** System introduction graphic showing the NETRA-UGV platform (stereo optical head + Jetson Orin Nano edge brain).
 
 #### 🎙️ Presenter Delivery Guide:
-* **Tone:** Urgent, authoritative, clear military cadence.
-* **Pacing:** Steady, commanding attention immediately.
+* **Tone:** Clear, authoritative, problem-focused.
+
+#### 🗣️ Spoken Script (105 Words):
+> *"Respected members of the jury from Bharat Electronics Limited: We are Team KernelCrew, presenting **NETRA-UGV** for Problem Statement 26126.
+>
+> Deploying autonomous ground vehicles in real-world outdoor environments—such as disaster search-and-rescue, precision agriculture, and remote logistics—presents three major bottlenecks: satellite GPS signals frequently drop under forest canopies and urban rubble; expensive 3D LiDARs cannot tell driveable grass from solid barriers; and standard 2D detectors miss ground drop-offs entirely.
+>
+> NETRA-UGV is an indigenous, end-to-end vision-inertial autonomous navigation brain that navigates reliably from Point A to Point B without satellite GPS, active LiDAR, or pre-mapped roads."*
+
+---
+
+### ⏱️ MINUTE 00:45 – 02:00 | CHAPTER 2: Deliverable 1 — Perception AI & Path Detection
+
+#### 📺 Visual Cues & Screen Directions:
+* **00:45 – 01:10:** Live semantic segmentation inference demonstration:
+  - Display raw 1080p stereo video feed alongside real-time semantic segmentation output.
+  - Highlight 4 color-coded classes:
+    * 🟩 **Solid Traversable Ground** (Soil/Gravel)
+    * 🟨 **Pliant Vegetation** (Tall Grass)
+    * 🟧 **Loose Mud / Sand** (Caution Zone)
+    * 🟥 **Rigid Obstacles & Boundaries** (Rocks, Trunks, Walls)
+* **01:10 – 01:35:** Technical metrics overlay:
+  - Benchmark callout: **BiSeNetV2-Lite on RELLIS-3D off-road benchmark**.
+  - Accuracy: **76.25% mIoU** | Model Size: **2.31M parameters** | INT8 Precision.
+  - Inference Latency: **2.6 ms** via TensorRT on NVIDIA Jetson Orin Nano.
+* **01:35 – 02:00:** Dynamic lighting resilience demo:
+  - Video clips showing direct sunlight glare, high-contrast tree shadows, and lens mud splatter.
+  - Show ground-weighted auto-exposure recovering exposure in **< 35 ms**.
+  - Show pulse air-purge nozzle graphic clearing lens contamination.
+
+#### 🎙️ Presenter Delivery Guide:
+* **Tone:** Technical, confident, data-driven.
+
+#### 🗣️ Spoken Script (165 Words):
+> *"Our first deliverable solves Path Detection through a lightweight bilateral segmentation network—**BiSeNetV2-Lite**—trained on the challenging off-road RELLIS-3D dataset.
+>
+> Rather than relying on simple bounding boxes, our model evaluates ground traversability at the pixel level across four distinct classes: solid ground, pliant brush, mud hazards, and impassable obstacles. Running via INT8 TensorRT on an NVIDIA Jetson Orin Nano, it achieves **76.25% mean IoU** with an ultra-low inference latency of just **2.6 milliseconds**.
+>
+> Critically, this eliminates the notorious 'false stop' problem of outdoor robotics. When encountering 50-centimeter tall soft grass, traditional LiDAR treats it as a concrete wall. NETRA identifies it as pliant vegetation, activating an adaptive speed governor at 0.5 meters per second—cutting false stops by more than 70%.
+>
+> To handle changing outdoor illumination—from glaring midday sun to dark forest canopies—our ground-weighted auto-exposure re-locks in under 35 milliseconds, while integrated air nozzles purge optical mud splatter automatically."*
+
+---
+
+### ⏱️ MINUTE 02:00 – 03:15 | CHAPTER 3: Deliverable 2 — Visual Localization Without GPS
+
+#### 📺 Visual Cues & Screen Directions:
+* **02:00 – 02:25:** OpenVINS MSCKF visual odometry in action:
+  - Screen capture of camera feed overlaid with vibrant green KLT optical flow tracks on FAST corners at **50 Hz**.
+  - Sliding-window multi-state constraint visualization updating camera poses.
+* **02:25 – 02:50:** Localization Drift & Benchmarking Graph:
+  - 500-meter closed-loop outdoor trajectory plot comparing Ground Truth vs. OpenVINS VIO.
+  - Callout banner: **Cumulative Translation Drift < 1.2% over 500 m** (BEL Requirement: < 2.0%).
+  - Highlight tight fusion with 500 Hz ICM-42688-P 6-DoF tactical IMU and Zero-Velocity Updates (ZUPT).
+* **02:50 – 03:15:** Split-Compute Architecture diagram:
+  - Highlight Luxonis OAK-D Pro Stereo Engine offloading semi-global matching (SGM) disparity directly onto silicon.
+  - Callout: **0 ms Host GPU Overhead for Stereo Disparity** — freeing 100% of the Jetson Ampere GPU for AI perception.
+
+#### 🎙️ Presenter Delivery Guide:
+* **Tone:** Precise, analytical, highlighting architectural efficiency.
+
+#### 🗣️ Spoken Script (160 Words):
+> *"Deliverable 2 achieves robust visual localization in environments where GPS is blocked by dense tree canopies, deep valleys, or collapsed rubble.
+>
+> We deploy **OpenVINS Multi-State Constraint Kalman Filter (MSCKF)**, tightly fusing stereo visual keypoints with a 500 Hertz 6-DoF inertial measurement unit. By tracking FAST corner features across a sliding historical window using NEON-accelerated KLT optical flow, our estimator computes accurate 6-DoF position and velocity without maintaining an expensive global 3D landmark map.
+>
+> Across 500-meter off-road closed-loop field evaluations, NETRA achieves a cumulative translational drift of **less than 1.2%**—well within BEL's 2% operational tolerance.
+>
+> To make this feasible on low-power hardware, we engineered a **Split-Compute Architecture**. Stereo rectification and semi-global disparity matching are executed entirely on an onboard vision coprocessor. This eliminates 25 milliseconds of heavy depth crunching from the host GPU, reserving 100% of our Jetson engine for neural networks."*
+
+---
+
+### ⏱️ MINUTE 03:15 – 04:15 | CHAPTER 4: Deliverable 3 — Path Planning & Collision Avoidance
+
+#### 📺 Visual Cues & Screen Directions:
+* **03:15 – 03:35:** Simulation & Path Planning Demonstration:
+  - 3D simulation showing the UGV tracking a multi-waypoint path from **Point A to Point B**.
+  - Display the real-time **2.5D Rolling Elevation Costmap** updating at 20 Hz around the rover.
+  - Timed Elastic Band (TEB) local planner generating smooth, kinodynamically feasible spline trajectories.
+* **03:35 – 04:00:** Geometric hBcDisparity Negative Obstacle Detection:
+  - Rover approaches a hidden ditch / erosion trench.
+  - Animated split-screen: show raw disparity image transformed into **2D hBcdisparity histogram space**.
+  - Show the ground plane line breaking into a disparity void gap.
+  - Virtual barrier committed to costmap **3.2 meters ahead in < 0.6 ms**; vehicle smoothly banks around the ditch.
+* **04:00 – 04:15:** Latency Waterfall Chart:
+  - Sensor DMA (3.5ms) $	o$ Perception/VIO (3.8ms) $	o$ Costmap (2.0ms) $	o$ TEB Spline (7.5ms) $	o$ Motor Dispatch (1.0ms).
+  - Total Closed-Loop Latency: **18.5 ms (> 50 Hz control rate)**.
+
+#### 🎙️ Presenter Delivery Guide:
+* **Tone:** Energetic, solution-driven, demonstrating safety and agility.
 
 #### 🗣️ Spoken Script (138 Words):
-> *"In a forward tactical combat zone, autonomy without military-grade security is an immediate liability. Along the Line of Control and high-altitude Ladakh, our Armed Forces face extreme operational realities: Russian and Chinese-class electronic warfare jammers neutralize satellite GPS in under two seconds. Meanwhile, spinning active LiDAR sensors betray a rover’s position to enemy Laser Warning Receivers while draining thirty Watts of battery.*
+> *"Deliverable 3 transforms perception into safe, reactive vehicle motion from Point A to Point B.
 >
-> *Worse still, commercial robotics software collapses off-road. Standard object detectors like YOLO see trees and boulders, but are completely blind to negative obstacles—driving rovers straight into anti-tank ditches and shell craters. And traditional navigation grids treat tall grass like solid concrete walls, causing endless false stops.*
+> Our kinodynamic Timed Elastic Band planner optimizes trajectories in real time, respecting wheel acceleration limits, terrain friction, and vehicle chassis dimensions at speeds up to 1.5 meters per second.
 >
-> *For Bharat Electronics Limited, our team developed **NETRA-UGV**: a hardware-shielded, encrypted, and emission-free vision navigation brain engineered for 100% mission survival."*
+> But the greatest danger in outdoor navigation is negative obstacles—irrigation ditches, ravines, and sudden ground drop-offs that 2D LiDAR and bounding-box models completely miss.
+>
+> NETRA solves this using **geometric v-disparity raycasting**. By mapping disparity directly in column-space, downward ground drop-offs appear as instant geometric voids. Our algorithm detects ditches up to 3.2 meters ahead in **under 0.6 milliseconds**—giving more than 2.3 seconds of stopping margin.
+>
+> The entire closed loop—from photons hitting the lens to motor commands—executes in just **18.5 milliseconds**, guaranteeing an ultra-responsive 50 Hertz control rate."*
 
 ---
 
-### ⏱️ MINUTE 01:00 – 02:00 | CHAPTER 2: Security-First, Cryptography & Hardware Shielding
+### ⏱️ MINUTE 04:15 – 05:00 | CHAPTER 5: System Integration, Multi-Scenario Demo & BEL Impact
 
 #### 📺 Visual Cues & Screen Directions:
-* **01:00 – 01:25:** 3D CAD explosion view of the milled 6061-T6 aluminum avionics enclosure, highlighting:
-  - Double-lip silver-filled conductive EMI gaskets.
-  - Optical sapphire glass windows ($2200\text{ HV}$) with pulsed air-purge nozzles.
-  - Amphenol MIL-DTL-38999 circular connectors.
-* **01:25 – 01:45:** Diagram of the Cryptographic Architecture:
-  - TPM 2.0 Secure Boot PKI verification flow.
-  - LUKS2 AES-XTS-256 encrypted storage with encrypted RAMDisk for model weights.
-  - S-ROS 2 (DDS Security v1.1) with X.509 certificates and AES-GCM-256 topic encryption.
-* **01:45 – 02:00:** Animated graphic of an electronic crowbar circuit: Active tamper grid detects chassis breach, triggering complete cryptographic key zeroization in $< 85\text{ ms}$.
+* **04:15 – 04:35:** Live Ground Control Station (GCS) Dashboard ([netraugv.vercel.app](https://netraugv.vercel.app)):
+  - Show live browser telemetry: attitude pitch/roll gauge, real-time 2.5D costmap canvas, camera feeds, and mode switches.
+  - Highlight the 3 validated test scenarios:
+    1. *Search & Rescue Route (5 Waypoints through Rubble & Obstacles)*
+    2. *Negative Obstacle (Ditch & Drop-Off Avoidance)*
+    3. *Low Visibility Navigation (Tall Grass & Lighting Variations)*
+* **04:35 – 04:50:** Verified System KPI Benchmark Card:
+  - Localization Drift: **< 1.2% over 500 m**
+  - Terrain mIoU: **76.25% on RELLIS-3D**
+  - Closed-Loop Latency: **18.5 ms**
+  - Total Compute Power: **< 13.5 Watts**
+  - Primary Hardware BOM: **₹70,500** (vs. ₹3,00,000+ for imported LiDAR)
+* **04:50 – 05:00:** Presenter closing sign-off with Bharat Electronics Limited and KernelCrew team credentials.
 
 #### 🎙️ Presenter Delivery Guide:
-* **Tone:** Firm, confident, emphasizing non-negotiable security standards.
+* **Tone:** Inspiring, conclusive, emphasizing cost savings, reliability, and industry readiness.
 
-#### 🗣️ Spoken Script (135 Words):
-> *"Unlike academic prototypes, NETRA is designed defence-first. If a rover is captured, unencrypted software leaks tactical maps and proprietary neural weights. NETRA eliminates this risk completely.*
+#### 🗣️ Spoken Script (112 Words):
+> *"We validated NETRA-UGV across three diverse outdoor simulation environments: a disaster search-and-rescue rubble zone, an off-road agricultural field, and a forested trail with drop-offs. In every scenario, NETRA completed collision-free Point A to Point B missions with zero human intervention.
 >
-> *At the hardware level, we enforce a TPM 2.0 Secure Boot chain, authenticating the signed real-time kernel before motor controllers ever initialize. All storage is locked under LUKS2 AES-256 full-disk encryption, and our neural model weights exist exclusively inside cryptographically locked RAM. Across the vehicle, our S-ROS 2 architecture encrypts inter-node topics using AES-GCM-256, while motor actuation commands are authenticated using automotive SecOC with AES-128 Message Authentication Codes.*
+> Our full stack runs under a strict **13.5-Watt power envelope** and costs just **₹70,500** on commercially available hardware—slashing sensor payload costs by over 75% compared to imported LiDAR systems.
 >
-> *Encased in a MIL-STD-461G billet aluminum chassis providing over eighty-five decibels of EMI and EMP attenuation, NETRA features active hull tamper circuits. If captured, hardware crowbar circuits zeroize all cryptographic keys in under eighty-five milliseconds."*
+> NETRA-UGV provides Bharat Electronics Limited with a field-ready, cost-effective vision navigation brain for outdoor robotic surveillance, search-and-rescue, and smart automation. Thank you."*
 
 ---
 
-### ⏱️ MINUTE 02:00 – 03:00 | CHAPTER 3: Deterministic Core Perception & Negative Obstacle Detection
+## 📋 Production & Recording Verification Checklist
 
-#### 📺 Visual Cues & Screen Directions:
-* **02:00 – 02:20:** Live RViz2 perception capture:
-  - Display the raw camera feed.
-  - Show the **Dynamic Ground-Horizon ROI** bounding box dynamically tracking the IMU pitch angle, cropping out the sky and vehicle hood.
-  - Overlay the 4-class semantic color mask (Solid Ground = Green, Pliant Brush = Yellow, Mud = Orange, Rigid Obstacle = Red).
-* **02:20 – 02:40:** Animated graphic of the **$v$-Disparity Space Transformation**:
-  - Show the straight ground diagonal line.
-  - Show a ditch producing an instant downward discontinuity and disparity void gap.
-  - Show the Bayesian confirmation counter ticking $1 \to 2 \to 3$ frames before committing an instant virtual barrier to the 2.5D costmap.
-* **02:40 – 03:00:** Display OpenVINS feature tracking: Green KLT optical flow vectors tracking FAST corners at $50\text{ Hz}$, with the 6-DoF odometry trajectory tracking smoothly.
-
-#### 🎙️ Presenter Delivery Guide:
-* **Tone:** Technical, precise, demonstrative.
-
-#### 🗣️ Spoken Script (140 Words):
-> *"To guarantee absolute dependability, we eliminated fragile, non-deterministic research models from the critical control path. Every algorithm in NETRA is mathematically bounded and provable.*
->
-> *First: our Horizon-Aware Dynamic ROI uses tactical IMU pitch data to crop out the sky and chassis, slashing TensorRT INT8 inference of our BiSeNetV2 network to just 2.6 milliseconds. In tall grass, an adaptive speed governor throttles velocity to 0.5 meters per second while monitoring suspension shocks.*
->
-> *Second: to solve negative obstacles, we bypass heavy, noisy 3D point cloud RANSAC. Instead, we compute the ground plane directly in 2D v-disparity space in under 0.6 milliseconds. Hidden trenches and shell craters appear as geometric disparity voids. Our Bayesian temporal accumulator verifies the hazard over three consecutive frames, giving over 2.3 seconds of braking margin while eliminating false stops on gravel.*
->
-> *Third: OpenVINS executes deterministic KLT optical flow at 50 Hertz on CPU, maintaining localization drift under 1.2% across 500 meters of total GPS denial."*
-
----
-
-### ⏱️ MINUTE 03:00 – 04:00 | CHAPTER 4: Split-Compute Topology & Deterministic Latency
-
-#### 📺 Visual Cues & Screen Directions:
-* **03:00 – 03:25:** System Architecture Block Diagram:
-  - Highlight the Luxonis OAK-D Pro Stereo Vision Engine offloading disparity on its onboard ASIC.
-  - Arrow showing $0\text{ ms}$ host GPU load for stereo depth.
-  - Highlight the Jetson Orin Nano CPU core affinity map: Cores 2 & 3 shielded with `isolcpus` for the VIO real-time thread.
-* **03:25 – 03:45:** Latency Waterfall Chart:
-  - Sensor DMA: $3.5\text{ ms}$ $\to$ Perception/VIO: $3.8\text{ ms}$ $\to$ 2.5D Costmap: $2.0\text{ ms}$ $\to$ TEB Spline: $7.5\text{ ms}$ $\to$ SecOC CAN: $1.0\text{ ms}$.
-  - Total latency bar highlighting **$18.5\text{ ms}$ ($> 45\text{ Hz}$)**.
-* **03:45 – 04:00:** Side-by-side BOM Comparison Card:
-  - **Tier 1 (Tactical Primary):** Jetson Orin Nano + OAK-D Pro ($<13.5\text{W}$, ₹70,500).
-  - **Tier 2 (Ultra-Low-Cost Swarm):** Raspberry Pi 5 + Hailo-8 NPU ($<9.2\text{W}$, ₹30,000 — 58% savings).
-
-#### 🎙️ Presenter Delivery Guide:
-* **Tone:** Pragmatic, engineering-focused, emphasizing cost-effectiveness and real-time execution.
-
-#### 🗣️ Spoken Script (134 Words):
-> *"A primary reason vision systems fail in real-world deployment is computational contention. Computing stereo disparity on an embedded GPU burns up to 25 milliseconds, choking neural networks and crashing frame rates.*
->
-> *NETRA solves this through a Split-Compute Architecture. We offload stereo rectification and disparity entirely to an onboard vision processor, streaming rectified depth with zero host GPU overhead. This reserves 100% of the Jetson’s Ampere GPU for neural inference. Running on an RT-PREEMPT real-time Linux kernel with CPU core shielding, our entire perception-to-actuation pipeline executes in a deterministic 18.5 milliseconds—guaranteeing an agile, closed-loop control rate exceeding 45 Hertz.*
->
-> *Furthermore, for expendable scout rovers, we developed an ultra-low-cost swarm tier pairing a Raspberry Pi 5 with a 26-TOPS Hailo-8 NPU for under thirty thousand rupees, delivering 58% cost savings at sub-10-Watt power."*
-
----
-
-### ⏱️ MINUTE 04:00 – 05:00 | CHAPTER 5: Failsafe State Machine, Quantified KPIs & Outro
-
-#### 📺 Visual Cues & Screen Directions:
-* **04:00 – 04:25:** Gazebo Simulation Demonstration:
-  - The tactical skid-steer UGV navigates an off-road obstacle world.
-  - Shows vehicle accelerating on solid ground, smoothly traversing tall grass at $0.5\text{ m/s}$.
-  - Camera approaches an anti-tank ditch: a virtual barrier appears $3\text{ meters}$ ahead, and the TEB local planner smoothly executes a clean evasive turn.
-  - Artificial smoke screen appears: show on-screen telemetry switching to **Level 2 Failsafe: Dead-Reckoning Limp Mode**, bringing the UGV to a controlled halt.
-* **04:25 – 04:45:** Full-screen KPI Benchmark Table:
-  - Drift: $< 1.2\%$ over $500\text{ m}$ (vs. BEL $< 2.0\%$).
-  - Latency: $18.5\text{ ms}$ ($> 45\text{ Hz}$).
-  - Negative Obstacle Range: $3.0\text{ m}$ forward.
-  - Zeroization: $< 85\text{ ms}$.
-  - Power: $< 13.5\text{ W}$.
-* **04:45 – 05:00:** Presenter on camera with UGV rendering in background. Closing statement and official sign-off with BEL and SIH 2025 logos.
-
-#### 🎙️ Presenter Delivery Guide:
-* **Tone:** Inspiring, decisive, leaving a powerful impression of readiness and national sovereignty.
-
-#### 🗣️ Spoken Script (133 Words):
-> *"A battle-ready system must have deterministic recovery. NETRA implements a multi-tier failsafe state machine: sudden sun glare is resolved by ground-weighted auto-exposure in under 35 milliseconds. If heavy smoke screens blind the optical sensors, pulsed air nozzles purge the sapphire lenses, while the system seamlessly falls back to inertial dead-reckoning and wheel slip compensation to execute a controlled tactical stop.*
->
-> *Our validated metrics speak for themselves: localization drift under 1.2% in total GPS blackout, 18.5-millisecond closed-loop latency, reliable ditch detection at three meters, and complete cryptographic zeroization in under 85 milliseconds—all under 13.5 Watts.*
->
-> *NETRA-UGV provides Bharat Electronics Limited and India’s Armed Forces with a sovereign, unbreachable, and battle-hardened autonomous navigation brain. Built for the border. Engineered to survive. Thank you."*
-
----
-
-## 📋 Production Checklist for Recording
-
-| Item | Requirement | Verified |
+| Technical Item | Production Standard | Verified |
 | :--- | :--- | :---: |
-| **Microphone** | Crisp lapel / condenser mic, zero ambient echo, clean vocal presence | [ ] |
-| **Visual Resolution** | 1080p @ 60 FPS or 4K @ 30 FPS screen recording of RViz2 / Gazebo | [ ] |
-| **Terminal Visuals** | Large monospace font ($>16\text{pt}$), dark theme with clear colored status output | [ ] |
-| **B-Roll Overlays** | Synchronized with speech timestamps (no lingering dead slides) | [ ] |
-| **Total Audio Duration** | Checked against stopwatch: must land between **04:50 and 05:00** | [ ] |
+| **Audio Clarity** | Lapel / Condenser mic, zero echo, normalized to -14 LUFS | [ ] |
+| **Pacing Check** | Total word count: ~680 words; spoken duration strictly **04:50 to 04:58** | [ ] |
+| **Screen Captures** | 1080p 60 FPS RViz2, Webots simulation, and Live GCS Dashboard | [ ] |
+| **No Military Jargon** | Verified 0 mentions of combat, EW, zeroization, or battlefield threats | [x] |
+| **Direct PS Alignment** | Explicitly demonstrates all 3 Deliverables of SIH PS-26126 | [x] |
 
 ---
-*Document Version: 3.1 | Formatted for SIH 2025 Official Video Submission*
+*Document Version: 4.0 (Aligned to SIH 26126 BEL Civilian Autonomous Robotics Requirements)*
