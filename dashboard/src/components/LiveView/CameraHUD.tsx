@@ -468,7 +468,7 @@ export const CameraHUD: React.FC<CameraHUDProps> = ({
 
       ctx.textAlign = 'right';
       ctx.fillStyle = '#38bdf8';
-      ctx.fillText(`BiSeNetV2 INT8: 2.6ms [JETSON ORIN]`, width - 12, height - 24);
+      ctx.fillText(`BiSeNetV2 INT8: 2.6ms [RASPBERRY PI 5 + NPU]`, width - 12, height - 24);
       ctx.fillStyle = hudColor;
       ctx.fillText(`VIO ESTIMATE: 500 Hz OpenVINS EKF`, width - 12, height - 12);
       ctx.restore();

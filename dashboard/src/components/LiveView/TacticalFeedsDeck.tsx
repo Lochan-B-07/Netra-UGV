@@ -284,7 +284,7 @@ export const TacticalFeedsDeck: React.FC<TacticalFeedsDeckProps> = ({
             <div className="flex-1 relative overflow-hidden">
               <canvas ref={camCanvasRef} className="w-full h-full" />
               <div className="absolute bottom-1 left-2 text-[9px] font-mono text-emerald-400/90 bg-tactical-950/70 px-1 rounded pointer-events-none">
-                AI SEG: 2.6ms [JETSON ORIN]
+                AI SEG: 2.6ms [RASPBERRY PI 5 + NPU]
               </div>
             </div>
           </div>

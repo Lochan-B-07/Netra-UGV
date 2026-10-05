@@ -119,7 +119,7 @@ export const AiSegmentationLab: React.FC = () => {
 
               <div className="text-xs font-mono text-slate-400 flex items-center gap-1.5">
                 <Cpu className="w-3.5 h-3.5 text-cyan-400" />
-                <span>NVIDIA Orin Nano:</span>
+                <span>Raspberry Pi 5 + Hailo NPU:</span>
                 <span className="text-emerald-400 font-bold">{benchmarkLatency} ms</span>
               </div>
             </div>
